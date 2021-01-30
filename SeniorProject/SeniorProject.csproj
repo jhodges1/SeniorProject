@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,6 +9,18 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CommunitSubmissionPage.xaml.cs" />
+    <Compile Remove="CommunitySubmissionPage.xaml.cs" />
+    <Compile Remove="ListViewPage1.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="CommunitSubmissionPage.xaml" />
+    <EmbeddedResource Remove="CommunitySubmissionPage.xaml" />
+    <EmbeddedResource Remove="ListViewPage1.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
