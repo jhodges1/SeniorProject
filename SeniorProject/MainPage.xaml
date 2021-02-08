@@ -10,6 +10,7 @@
             
             x:Class="SeniorProject.MainPage">
 
+
     <NavigationPage Title="Settings" IconImageSource="settings_icon.png">
         <x:Arguments>
             <local:SettingsPage />
@@ -25,6 +26,8 @@
             <local:CommunityPage />
         </x:Arguments>
     </NavigationPage>
+    
+    
 
 
 

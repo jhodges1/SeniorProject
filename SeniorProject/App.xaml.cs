@@ -10,7 +10,10 @@ namespace SeniorProject
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginPage());
+
+            // Gets rid of extra blue navigation bar that occurs
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         protected override void OnStart()
