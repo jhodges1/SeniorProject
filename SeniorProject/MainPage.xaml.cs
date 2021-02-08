@@ -15,7 +15,8 @@ namespace SeniorProject
             InitializeComponent();
 
             // This should get rid of the extra blue bar that appears
-            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasBackButton(this, false);
+            
 
             // This will set the second "child" of the tabbed page as the default
             CurrentPage = Children[1];

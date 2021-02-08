@@ -7,11 +7,11 @@
             android:TabbedPage.BarItemColor="Black"
             android:TabbedPage.BarSelectedItemColor="Red"
             android:TabbedPage.BarBackgroundColor="#757575"
-            
+            android:TabbedPage.Title="Can I Park Here?"
             x:Class="SeniorProject.MainPage">
-
-
-    <NavigationPage Title="Settings" IconImageSource="settings_icon.png">
+   
+    
+    <NavigationPage Title="Settings" IconImageSource="settings_icon.png" >
         <x:Arguments>
             <local:SettingsPage />
         </x:Arguments>
