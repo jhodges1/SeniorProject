@@ -5,11 +5,11 @@ using MySql.Data.MySqlClient;
 
 namespace SeniorProject
 {
-    public partial class LoginPage : ContentPage
+    public partial class RegisterAccountPage : ContentPage
     {
-        public LoginPage()
+        public RegisterAccountPage()
         {
-            InitializeComponent();
+            // InitializeComponent();
 
             // Gets rid of the extra blue navigation bar that occurs
             NavigationPage.SetHasNavigationBar(this, false);
@@ -17,19 +17,11 @@ namespace SeniorProject
 
         private void btnRegisterAccount_Click()
         {
-            // Notes:
-            // Needs to redirect to RegisterAccountPage
-            // 1. Create new RegisterAccountPage here
-            // 2. Create function in RegisterAccountPage that allows for a redirect
-        }
-
-        private void btnLogin_Click()
-        {
             try
             {
                 // Notes:
                 // UID & PASSWORD mapped to XAML buttons
-                // 1. Create button binding in LoginPage.xaml 
+                // 1. Create text box bindings in RegisterAccountPage.xaml 
                 string connectionString = "SERVER=localhost;DATABASE=TeamBeach_Database;UID=root;PASSWORD=root;";
 
                 MySqlConnection connection = new MySqlConnection(connectionString);
@@ -39,20 +31,25 @@ namespace SeniorProject
                 DataTable dt = new DataTable();
                 connection.Open();
                 dt.Load(cmd.ExecuteReader());
-                // User login failed
+                // User account does not exist
                 if (cmd.ExecuteReader() == null)
                 {
-                    // Display Login Attempt failed
+                    // Attempt to register account using the provided user credentials
+                    try
+                    {
+                        // Notes:
+                        // 1. Check if user credentials exist already
+                    }
+                    catch (Exception)
+                    {
 
-                    /* Consider incrementing a login attempt counter */
+                    }
                 }
-                // User login successful
+                // User account exists
                 else
                 {
                     // Notes:
-                    // Needs to redirect to HomePage
-                    // 1. Create new HomePage here
-                    // 2. Create function in HomePage that allows for a redirect
+                    // Allow for redirect back to LoginPage
                 }
                 connection.Close();
             }
