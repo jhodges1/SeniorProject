@@ -7,23 +7,20 @@ namespace SeniorProject
 {
     public partial class LoginPage : ContentPage
     {
-        private string USERNAME;
-        private string PASSWORD;
-
         public LoginPage()
         {
             InitializeComponent();
 
-            // Removes the extra navigation bar
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            var username = USERNAME.Text;
+            var password = PASSWORD.Text;
             try
             {
-                /* Need to double check if it takes from the text box entries properly */
-                string connectionString = $"SERVER=localhost;DATABASE=TeamBeach_Database;UID={USERNAME.ToString()};PASSWORD={PASSWORD.ToString()};";
+                string connectionString = $"SERVER=localhost;DATABASE=TeamBeach_Database;UID={username};PASSWORD={password};";
 
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
@@ -33,14 +30,12 @@ namespace SeniorProject
 
                 connection.Open();
                 dt.Load(cmd.ExecuteReader());
-                // User login failed
                 if (cmd.ExecuteReader() == null)
                 {
                     DisplayAlert("Information", "Login failed!", "Back");
 
                     /* Consider incrementing a login attempt counter */
                 }
-                // User login successful
                 else
                 {
                     DisplayAlert("Information","Login successful!","Enter");

@@ -10,15 +10,15 @@
             <StackLayout Margin="100,132,100,132">
                 <Label Text="Can I Park Here?" FontSize="50" HorizontalTextAlignment="Center" TextColor="White" />
                 <Label Text="Enter a username" FontSize="30" TextColor="DarkGray" />
-                <Entry Text="USERNAME" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
+                <Entry x:Name="USERNAME" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
                 <Label Text="Enter first name" FontSize="30" TextColor="DarkGray" />
-                <Entry Text="FIRSTNAME" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
+                <Entry x:Name="FIRSTNAME" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
                 <Label Text="Enter last name" FontSize="30" TextColor="DarkGray" />
-                <Entry Text="LASTNAME" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
+                <Entry x:Name="LASTNAME" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
                 <Label Text="Enter email" FontSize="30" TextColor="DarkGray" />
-                <Entry Text="EMAIL" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
+                <Entry x:Name="EMAIL" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
                 <Label Text="Enter a password" FontSize="30" TextColor="DarkGray" />
-                <Entry Text="PASSWORD" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
+                <Entry x:Name="PASSWORD" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
                 <Button Text="Enter" Margin="0,70,0,0" FontSize="30" BackgroundColor="LightGray" TextColor="#606060"/>
                 <Button Text="Back" Margin="0,35,0,0" FontSize="30" BackgroundColor="LightGray" TextColor="#606060"/>
             </StackLayout>
