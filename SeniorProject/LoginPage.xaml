@@ -1,36 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SeniorProject.LoginPage">
+             x:Class="SeniorProject.LoginPage"
 
+             Width="720" Height="1280" BackgroundColor="#202020">
 
     <ContentPage.Content>
-        <Grid Padding="30" RowSpacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0">
-                <BoxView HeightRequest="10" />
-            </Grid>
-            <Grid Grid.Row="1" WidthRequest="500">
-                <Frame HasShadow="True" BorderColor="Gray">
-                    <StackLayout Orientation="Vertical" Spacing="20">
-                        <Entry x:Name="UserName" Text="{Binding UserName}" TextColor="Black" Placeholder="UserName" PlaceholderColor="LightGray" HeightRequest="40"/>
-                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" PlaceholderColor="LightGray" HeightRequest="40" IsPassword="True"/>
-                    </StackLayout>
-                </Frame>
-            </Grid>
-            <Grid Grid.Row="2">
-                <Button Command="{Binding LoginCommand}" Text="Login" TextColor="LightGray"
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"
-                        BackgroundColor="Gray" Clicked="NavigateButton_OnClicked" />
-            </Grid>
-
+        <Grid>
+            <StackLayout Margin="100,132,100,132">
+                <Label Text="Can I Park Here?" FontSize="50" HorizontalTextAlignment="Center" TextColor="White" />
+                <Label Text="Username" FontSize="30" TextColor="DarkGray" />
+                <Entry Text="USERNAME" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
+                <Label Text="Password" FontSize="30" TextColor="DarkGray" />
+                <Entry Text="PASSWORD" FontSize="30" BackgroundColor="LightGray" TextColor="White"/>
+                <Button Text="Register a User Account" Margin="0,70,0,0" FontSize="30" BackgroundColor="LightGray" TextColor="#606060"/>
+                <Button Text="Login" Margin="0,35,0,0" FontSize="30" BackgroundColor="LightGray" TextColor="#606060"/>
+            </StackLayout>
         </Grid>
-        
     </ContentPage.Content>
 
 </ContentPage>

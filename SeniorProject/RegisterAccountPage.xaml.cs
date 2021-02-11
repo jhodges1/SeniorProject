@@ -7,56 +7,74 @@ namespace SeniorProject
 {
     public partial class RegisterAccountPage : ContentPage
     {
+        private string FIRSTNAME;
+        private string LASTNAME; 
+        private string USERNAME;
+        private string EMAIL;
+        private string PASSWORD;
+
         public RegisterAccountPage()
         {
-            // InitializeComponent();
+            InitializeComponent();
 
-            // Gets rid of the extra blue navigation bar that occurs
+            // Removes the extra navigation bar
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private void btnRegisterAccount_Click()
+        // User clicks "Enter"
+        private void btnEnter_Click(object sender, EventArgs e)
         {
             try
             {
-                // Notes:
-                // UID & PASSWORD mapped to XAML buttons
-                // 1. Create text box bindings in RegisterAccountPage.xaml 
-                string connectionString = "SERVER=localhost;DATABASE=TeamBeach_Database;UID=root;PASSWORD=root;";
+                string connectionString = "SERVER=localhost;DATABASE=TeamBeach_Database;UID=root;PASSWORD=root;"; // Needs administrator privileges to confirm account registration
 
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand cmd = new MySqlCommand("select * from account", connection);
+                // Takes the number of rows in the account table
+                using (var cmdCount = new MySqlCommand("select count * from account", connection))
+                {
+                    // Stores a new uid for the new account
+                    int count = Convert.ToInt32(cmdCount.ExecuteScalar()) + 1;
+                }
+
+                /* Need to double check if it takes from the text box entries properly */
+                string query = "INSERT INTO `ACCOUNT` (`ACCOUNT_ID`,`ACCOUNT_FIRSTNAME`,`ACCOUNT_LASTNAME`,`ACCOUNT_USERNAME`,`ACCOUNT_EMAIL`,`ACCOUNT_PASSWORD`) " +
+                                    $"VALUES(count, {FIRSTNAME.ToString()}, {LASTNAME.ToString()}, {USERNAME.ToString()}, {EMAIL.ToString()}, {PASSWORD.ToString()};";
+
+                MySqlCommand cmd = new MySqlCommand("insert into * from account", connection);
 
                 DataTable dt = new DataTable();
+
                 connection.Open();
                 dt.Load(cmd.ExecuteReader());
-                // User account does not exist
+                // Account Registration failed
                 if (cmd.ExecuteReader() == null)
                 {
-                    // Attempt to register account using the provided user credentials
-                    try
-                    {
-                        // Notes:
-                        // 1. Check if user credentials exist already
-                    }
-                    catch (Exception)
-                    {
+                    DisplayAlert("Information", "Account Registration failed!", "Back");
 
-                    }
+                    /* Needs to display errors (i.e., empty entries, user credentials are already taken, user credentials are invalid) */
                 }
-                // User account exists
+                // Account Registration successful
                 else
                 {
-                    // Notes:
-                    // Allow for redirect back to LoginPage
+                    DisplayAlert("Information", "Account Registration successful!", "Enter");
+
+                    /* Redirects user back to the login page; Needs to check if works correctly*/
+                    btnBack_Click(sender, e);
                 }
                 connection.Close();
             }
             catch (Exception)
             {
-                
+
             }
+        }
+
+        // User clicks "Back"
+        private async void btnBack_Click(object sender, EventArgs e)
+        {
+            // Redirects user back to the Login Page
+            await Navigation.PushModalAsync(new LoginPage());
         }
 
         private async void NavigateButton_OnClicked(object sender, EventArgs e)
