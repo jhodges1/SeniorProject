@@ -1,69 +1,74 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
-using MySql.Data.MySqlClient;
+using Xamarin.Forms.Xaml;
+
+using MySqlConnector;
+
+using System.Data;
 
 namespace SeniorProject
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
             InitializeComponent();
 
+            // Gets rid of extra blue navigation bar that occurs
             NavigationPage.SetHasNavigationBar(this, false);
+
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void Login(object sender, EventArgs e)
         {
-            var username = USERNAME.Text;
-            var password = PASSWORD.Text;
-            try
+            string uid = Username.Text;
+            string pwd = Password.Text;
+
+            //string dbConnection = $"SERVER=localhost;DATABASE=TeamBeach_Database;UID={username};PASSWORD={password};";
+
+            //string dbConnection = "server=localhost;user id=root;database=teambeach_database;persistsecurityinfo=True";
+
+            string dbConnection = "Server=localhost; Port=3306; Database=teambeach_database; Uid=root; Pwd=root;";
+
+            MySqlConnection connection = new MySqlConnection(dbConnection);
+            MySqlCommand cmd = new MySqlCommand("select * from account", connection);
+
+            DataTable dt = new DataTable();
+
+            connection.Open(); // Error !
+
+            dt.Load(cmd.ExecuteReader());
+
+            // Login failed
+            if (cmd.ExecuteReader() == null)
             {
-                string connectionString = $"SERVER=localhost;DATABASE=TeamBeach_Database;UID={username};PASSWORD={password};";
-
-                MySqlConnection connection = new MySqlConnection(connectionString);
-
-                MySqlCommand cmd = new MySqlCommand("select * from account", connection);
-
-                DataTable dt = new DataTable();
-
-                connection.Open();
-                dt.Load(cmd.ExecuteReader());
-                if (cmd.ExecuteReader() == null)
-                {
-                    DisplayAlert("Information", "Login failed!", "Back");
-
-                    /* Consider incrementing a login attempt counter */
-                }
-                else
-                {
-                    DisplayAlert("Information","Login successful!","Enter");
-                    
-                    // Notes:
-                    // Needs to redirect to HomePage
-                    // 1. Create new HomePage here
-                    // 2. Create function in HomePage that allows for a redirect
-                }
-                connection.Close();
+                await DisplayAlert("Error", "Invalid username or password", "OK");
             }
-            catch (Exception)
+            // Login successful
+            else
             {
-
+                await Navigation.PushModalAsync(new MainPage());
             }
+
+            connection.Close();
         }
 
-        // Redirects user to the Register Account Page
-        private async void btnRegisterAccount_Click(object sender, EventArgs e)
+        private async void Login_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new RegisterAccountPage());
+            await DisplayAlert("Alert", "Login successful!", "OK");
+
+            await Navigation.PushModalAsync(new MainPage()); 
         }
 
-
-
-        private async void NavigateButton_OnClicked(object sender, EventArgs e)
+        private async void Register_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushModalAsync(new RegisterPage());
         }
     }
 }
