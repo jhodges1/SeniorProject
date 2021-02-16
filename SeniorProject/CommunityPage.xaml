@@ -21,4 +21,5 @@
             </BoxView>
         </StackLayout>
     </ScrollView>
+    x:Class="SeniorProject.CommunityPage">
 </ContentPage>
