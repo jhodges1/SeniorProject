@@ -11,18 +11,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Class1.cs" />
     <Compile Remove="CommunitSubmissionPage.xaml.cs" />
     <Compile Remove="CommunitySubmissionPage.xaml.cs" />
+    <Compile Remove="ConmmunityEntryForm.xaml.cs" />
     <Compile Remove="ListViewPage1.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="CommunitSubmissionPage.xaml" />
     <EmbeddedResource Remove="CommunitySubmissionPage.xaml" />
+    <EmbeddedResource Remove="ConmmunityEntryForm.xaml" />
     <EmbeddedResource Remove="ListViewPage1.xaml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
