@@ -1,25 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:SeniorProject;assembly=SeniorProject"
              x:Class="SeniorProject.CommunityPage">
-    <ScrollView>
-        <StackLayout>
-            <Label Text="Community Page"
-                HorizontalOptions="CenterAndExpand" />
-            <BoxView WidthRequest="600" HeightRequest="200" Color="ForestGreen">
-            </BoxView>
-            <BoxView WidthRequest="600" HeightRequest="200" Color ="Red">
-            </BoxView>
-            <BoxView WidthRequest="600" HeightRequest="200" Color="ForestGreen">
-            </BoxView>
-            <BoxView WidthRequest="600" HeightRequest="200" Color ="Red">
-            </BoxView>
-            <BoxView WidthRequest="600" HeightRequest="200" Color="ForestGreen">
-            </BoxView>
-            <BoxView WidthRequest="600" HeightRequest="200" Color ="Red">
-            </BoxView>
-        </StackLayout>
-    </ScrollView>
-    x:Class="SeniorProject.CommunityPage">
 </ContentPage>
