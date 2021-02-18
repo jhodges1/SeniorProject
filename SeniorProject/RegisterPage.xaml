@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SeniorProject.LoginPage"
+             x:Class="SeniorProject.RegisterPage"
              BackgroundColor="#404040">
 
     <ContentPage.Content>
@@ -20,21 +20,24 @@
             </Grid>
             <Grid Grid.Row="1" WidthRequest="500">
                 <Frame HasShadow="True" BorderColor="Gray">
-                    <StackLayout Orientation="Vertical" Spacing="20">
+                    <StackLayout Orientation="Vertical" Spacing="5">
+                        <Entry x:Name="FirstName" Text="{Binding FirstName}" TextColor="Black" Placeholder="First Name" PlaceholderColor="LightGray" HeightRequest="40"/>
+                        <Entry x:Name="LastName" Text="{Binding LastName}" Placeholder="Last Name" PlaceholderColor="LightGray" HeightRequest="40" IsPassword="True"/>
+                        <Entry x:Name="Email" Text="{Binding Email}" TextColor="Black" Placeholder="Email" PlaceholderColor="LightGray" HeightRequest="40"/>
                         <Entry x:Name="Username" Text="{Binding Username}" TextColor="Black" Placeholder="Username" PlaceholderColor="LightGray" HeightRequest="40"/>
                         <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" PlaceholderColor="LightGray" HeightRequest="40" IsPassword="True"/>
                     </StackLayout>
                 </Frame>
             </Grid>
             <Grid Grid.Row="2">
-                <Button Command="{Binding LoginCommand}" Text="Login" TextColor="LightGray"
+                <Button Command="{Binding LoginCommand}" Text="Register" TextColor="LightGray"
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"
-                        BackgroundColor="Gray" Clicked="Login_OnClicked" />
+                        BackgroundColor="Gray" Clicked="Register_OnClicked"/>
             </Grid>
             <Grid Grid.Row="3">
-                <Button Command="{Binding RegisterCommand}" Text="Register A User Account" TextColor="LightGray"
+                <Button Command="{Binding RegisterCommand}" Text="Back" TextColor="LightGray"
                         FontAttributes="Bold" FontSize="Small" HorizontalOptions="FillAndExpand"
-                        BackgroundColor="#404040" Clicked="Register_OnClicked" />
+                        BackgroundColor="#404040" Clicked="Back_OnClicked"/>
             </Grid>
 
         </Grid>
