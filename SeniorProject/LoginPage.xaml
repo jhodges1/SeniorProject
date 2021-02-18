@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SeniorProject.LoginPage"
-             BackgroundColor="#404040">
+             x:Class="SeniorProject.LoginPage">
+
 
     <ContentPage.Content>
         <Grid Padding="30" RowSpacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
@@ -12,16 +12,13 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Label Text="Can I Park Here?" FontSize="30" HorizontalTextAlignment="Center" TextColor="White" />
-
-
             <Grid Grid.Row="0">
                 <BoxView HeightRequest="10" />
             </Grid>
             <Grid Grid.Row="1" WidthRequest="500">
                 <Frame HasShadow="True" BorderColor="Gray">
                     <StackLayout Orientation="Vertical" Spacing="20">
-                        <Entry x:Name="Username" Text="{Binding Username}" TextColor="Black" Placeholder="Username" PlaceholderColor="LightGray" HeightRequest="40"/>
+                        <Entry x:Name="UserName" Text="{Binding UserName}" TextColor="Black" Placeholder="UserName" PlaceholderColor="LightGray" HeightRequest="40"/>
                         <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" PlaceholderColor="LightGray" HeightRequest="40" IsPassword="True"/>
                     </StackLayout>
                 </Frame>
@@ -29,16 +26,11 @@
             <Grid Grid.Row="2">
                 <Button Command="{Binding LoginCommand}" Text="Login" TextColor="LightGray"
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"
-                        BackgroundColor="Gray" Clicked="Login_OnClicked" />
-            </Grid>
-            <Grid Grid.Row="3">
-                <Button Command="{Binding RegisterCommand}" Text="Register A User Account" TextColor="LightGray"
-                        FontAttributes="Bold" FontSize="Small" HorizontalOptions="FillAndExpand"
-                        BackgroundColor="#404040" Clicked="Register_OnClicked" />
+                        BackgroundColor="Gray" Clicked="NavigateButton_OnClicked" />
             </Grid>
 
         </Grid>
-
+        
     </ContentPage.Content>
 
 </ContentPage>
